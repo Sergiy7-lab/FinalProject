@@ -358,7 +358,7 @@ body {
 
 .slider {
   width: 100%;
-  height: fit-content;
+
   position: relative;
   &__container {
     overflow: hidden;
@@ -369,6 +369,7 @@ body {
   }
   &__item {
     width: 25%;
+    height: 25%;
     cursor: pointer;
   }
 }

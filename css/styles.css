@@ -778,7 +778,6 @@ body {
 
 .slider {
   width: 100%;
-  height: fit-content;
   position: relative;
 }
 .slider__container {
@@ -790,6 +789,7 @@ body {
 }
 .slider__item {
   width: 25%;
+  height: 25%;
   cursor: pointer;
 }
 
