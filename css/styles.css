@@ -789,7 +789,7 @@ body {
 }
 .slider__item {
   width: 25%;
-  max-height: 800px;
+  max-height: 480px;
   cursor: pointer;
 }
 
@@ -1098,6 +1098,10 @@ body {
     font-size: 20px;
   }
 
+  .slider__item {
+    max-height: 500px;
+  }
+
   .foot__wrap {
     display: inline-block;
     padding-top: 10px;
@@ -1167,7 +1171,7 @@ body {
   }
 
   .slider__item {
-    max-height: 300px;
+    max-height: 110px;
   }
 
   .foot__wrap__contacts h2 {
