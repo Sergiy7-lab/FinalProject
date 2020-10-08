@@ -777,7 +777,7 @@ body {
 }
 
 .slider {
-  width: 100vw;
+  width: 100%;
   position: relative;
 }
 .slider__container {
@@ -788,7 +788,7 @@ body {
   transition: 0.2s;
 }
 .slider__item {
-  width: 25vw;
+  width: 25%;
   cursor: pointer;
 }
 
