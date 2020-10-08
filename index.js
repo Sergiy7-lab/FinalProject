@@ -124,18 +124,19 @@ if (window.matchMedia("(max-width: 768px)").matches) {
 if (window.matchMedia("(max-width: 425px)").matches) {
   window.addEventListener("scroll", function () {
     let value = window.scrollY;
-    bg.style.transform = `translateY(${(value - 700) / 2}px)`;
+    bg.style.transform = `translateY(${(value - 1177) / 2}px)`;
+    console.log(value);
   });
 
   window.addEventListener("scroll", function () {
     let value = window.scrollY;
-    bg2.style.transform = `translateY(${(value - 1268) / 2}px)`;
+    bg2.style.transform = `translateY(${(value - 2202) / 2}px)`;
   });
 
   window.addEventListener("scroll", function () {
     let value = window.scrollY;
 
-    bg3.style.transform = `translateY(${(value - 2218) / 2}px)`;
+    bg3.style.transform = `translateY(${(value - 3390) / 2}px)`;
   });
 }
 
@@ -224,3 +225,100 @@ function slideShow() {
 }
 
 // ======================================
+
+if (window.matchMedia("(max-width: 425px)").matches) {
+  let position = 0;
+  const slidesToShow = 2;
+  const slidesToScroll = 2;
+  const container = document.querySelector(".slider__container");
+  const track = document.querySelector(".slider__track");
+  const items = document.querySelectorAll(".slider__item");
+
+  const btnNext = document.querySelector(".btn-next");
+  const btnPrev = document.querySelector(".btn-prev");
+
+  const itemsCount = items.length;
+  const itemWidth = container.clientWidth / slidesToShow;
+  const movePosition = slidesToScroll * itemWidth;
+
+  btnNext.addEventListener("click", () => {
+    const itemsLeft =
+      itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+
+    position -=
+      itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+    setPosition();
+    checkBtns();
+  });
+
+  btnPrev.addEventListener("click", () => {
+    const itemsLeft = Math.abs(position) / itemWidth;
+    position +=
+      itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+    setPosition();
+    checkBtns();
+  });
+
+  const setPosition = () => {
+    track.style.transition = `${2}s`;
+    track.style.transform = `translateX(${position}px)`;
+  };
+
+  const checkBtns = () => {
+    btnPrev.disabled = position === 0;
+    btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
+  };
+  // ==================================== 00000 =============================
+
+  let start;
+  let positionChange;
+
+  track.addEventListener(
+    "touchstart",
+    (e) => {
+      let change = e.changedTouches;
+      for (let i = 0; i < change.length; i++) {
+        start = change[i].clientX;
+      }
+    },
+    false
+  );
+
+  track.addEventListener(
+    "touchmove",
+    (e) => {
+      let change = e.changedTouches;
+      e.preventDefault();
+      for (var i = 0; i < e.changedTouches.length; i++) {
+        let touch = change[i].clientX;
+        positionChange = start - touch;
+      }
+    },
+    false
+  );
+
+  track.addEventListener("touchend", slideShow);
+
+  function slideShow() {
+    if (positionChange > 0) {
+      const itemsLeft =
+        itemsCount -
+        (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+
+      position -=
+        itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+      setPosition();
+      checkBtns();
+    } else {
+      const itemsLeft = Math.abs(position) / itemWidth;
+      position +=
+        itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+      setPosition();
+      checkBtns();
+    }
+  }
+}

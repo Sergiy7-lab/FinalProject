@@ -1,7 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
 @import "./mixins";
-
-$width-stack: 100vw;
-
 body {
   max-width: 1920px;
   overflow-x: hidden;
@@ -17,7 +16,6 @@ body {
 }
 
 .adress {
-  font-family: "PT Sans Narrow", sans-serif;
   font-size: 16px;
   letter-spacing: 0.05em;
 }
@@ -43,7 +41,6 @@ body {
 }
 
 .menu__link {
-  font-family: "PT Sans Narrow", sans-serif;
   font-size: 18px;
   color: #2f2e2e;
 }
@@ -65,9 +62,6 @@ body {
 }
 .nav__menu.menu.login > li {
   margin-right: 10px;
-}
-.nav__menu.menu.login > li:first-child {
-  margin-right: 50px;
 }
 
 .menu__login_img {
@@ -154,8 +148,7 @@ body {
       @include homeTitle;
     }
     &_btn {
-      width: 130px;
-      height: 42px;
+      @include SmallBtn;
       @include homeBtn;
     }
   }
@@ -184,9 +177,7 @@ body {
     @include sectionPar;
   }
   &__btn {
-    width: 130px;
-    height: 42px;
-
+    @include SmallBtn;
     @include sectionBtn;
     &:hover {
       @include sectionBtnHov;
@@ -220,8 +211,7 @@ body {
     @include homeTitle;
   }
   &__btn {
-    width: 130px;
-    height: 42px;
+    @include SmallBtn;
     @include homeBtn;
   }
 }
@@ -250,9 +240,7 @@ body {
     @include sectionPar;
   }
   &__btn {
-    width: 200px;
-    height: 42px;
-
+    @include BigBtn;
     @include sectionBtn;
     &:hover {
       @include sectionBtnHov;
@@ -286,8 +274,7 @@ body {
     @include homeTitle;
   }
   &__btn {
-    width: 190px;
-    height: 42px;
+    @include BigBtn;
     @include homeBtn;
   }
 }
@@ -315,9 +302,7 @@ body {
     @include sectionPar;
   }
   &__btn {
-    width: 130px;
-    height: 42px;
-
+    @include SmallBtn;
     @include sectionBtn;
     &:hover {
       @include sectionBtnHov;
@@ -577,6 +562,7 @@ body {
     padding: 10px 0;
     opacity: 0;
     transition: opacity 100ms;
+    background-color: rgba(119, 118, 118, 0.5);
   }
   .nav .menu__link {
     width: 100%;
@@ -648,17 +634,6 @@ body {
     width: 35vw;
   }
 
-  .flavour-section__btn,
-  .desserts-section__btn {
-    width: 90px;
-    height: 30px;
-  }
-
-  .place-section__btn {
-    width: 140px;
-    height: 30px;
-  }
-
   .block-enjoy {
     height: 360px;
   }
@@ -696,6 +671,10 @@ body {
     width: 100vw;
   }
 
+  .foot__wrap__contacts p {
+    line-height: 15px;
+  }
+
   .foot__wrap__site {
     margin-left: 5px;
     margin-top: 5px;
@@ -720,38 +699,57 @@ body {
   .home-section__wrap_title > a {
     font-size: 20px;
   }
-  .home-section__title_btn {
-    width: 100px;
-    height: 30px;
-  }
-  .flavour-section__btn,
-  .desserts-section__btn {
-    width: 70px;
-    height: 25px;
+
+  .flavour-section {
+    display: inline-block;
+    & img {
+      width: 100vw;
+      object-fit: cover;
+    }
+    &__text {
+      height: 250px;
+    }
   }
 
-  .flavour-section img {
-    height: 250px;
-    object-fit: cover;
+  .place-section {
+    display: inline-block;
+    & img {
+      width: 100vw;
+      object-fit: cover;
+    }
+    &__text {
+      height: 250px;
+    }
   }
 
-  .place-section img {
-    height: 250px;
-    object-fit: cover;
+  .desserts-section {
+    display: inline-block;
+    & img {
+      width: 100vw;
+      object-fit: cover;
+    }
+    &__text {
+      height: 250px;
+    }
   }
 
-  .desserts-section img {
-    height: 250px;
-    object-fit: cover;
-  }
-
-  .place-section__btn {
-    width: 110px;
-    height: 25px;
+  .scoop-of-ice__wrap {
+    height: 260px;
   }
 
   .slider__item {
-    max-height: 150px;
+    max-height: 220px;
+    width: 50%;
+  }
+
+  .btn-prev img {
+    opacity: 1;
+    width: 5vw;
+  }
+
+  .btn-next img {
+    opacity: 1;
+    width: 5vw;
   }
 
   .foot__wrap__contacts h2 {

@@ -13,12 +13,6 @@
   @media screen and (max-width: 768px) {
     font-size: 24px;
   }
-  @media screen and (max-width: 640px) {
-    font-size: 20px;
-  }
-  @media screen and (max-width: 375px) {
-    font-size: 16px;
-  }
 }
 
 @mixin homeTitle {
@@ -33,12 +27,6 @@
   @media screen and (max-width: 768px) {
     font-size: 50px;
   }
-  @media screen and (max-width: 640px) {
-    font-size: 40px;
-  }
-  @media screen and (max-width: 375px) {
-    font-size: 22px;
-  }
 }
 
 @mixin homeBtn {
@@ -52,12 +40,7 @@
   @media screen and (max-width: 768px) {
     font-size: 20px;
   }
-  @media screen and (max-width: 640px) {
-    font-size: 18px;
-  }
-  @media screen and (max-width: 375px) {
-    font-size: 16px;
-  }
+
   &:hover {
     background-color: rgb(79, 79, 79);
     border: none;
@@ -73,9 +56,6 @@
   @media screen and (max-width: 768px) {
     font-size: 24px;
   }
-  @media screen and (max-width: 640px) {
-    font-size: 20px;
-  }
 }
 
 @mixin sectionSub {
@@ -86,10 +66,6 @@
   color: #2f2e2e;
   @media screen and (max-width: 768px) {
     font-size: 18px;
-  }
-  @media screen and (max-width: 640px) {
-    font-size: 16px;
-    margin-top: 7px;
   }
 }
 
@@ -102,16 +78,7 @@
   text-align: center;
   @media screen and (max-width: 768px) {
     font-size: 14px;
-  }
-  @media screen and (max-width: 640px) {
-    font-size: 10px;
-    width: 75%;
-    margin-top: 10px;
-  }
-  @media screen and (max-width: 375px) {
-    font-size: 9px;
-    width: 80%;
-    margin-top: 5px;
+    margin-top: 20px;
   }
 }
 
@@ -124,14 +91,7 @@
   transition: 0.4s ease;
   @media screen and (max-width: 768px) {
     font-size: 20px;
-  }
-  @media screen and (max-width: 640px) {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  @media screen and (max-width: 375px) {
-    font-size: 12px;
-    margin-top: 5px;
+    margin-top: 20px;
   }
 }
 
@@ -139,4 +99,22 @@
   transition: 0.4s ease;
   background-color: #2f2e2e;
   color: white;
+}
+
+@mixin SmallBtn {
+  width: 130px;
+  height: 42px;
+  @media screen and (max-width: 768px) {
+    width: 90px;
+    height: 30px;
+  }
+}
+
+@mixin BigBtn {
+  width: 190px;
+  height: 42px;
+  @media screen and (max-width: 768px) {
+    width: 140px;
+    height: 30px;
+  }
 }
