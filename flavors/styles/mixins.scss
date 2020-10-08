@@ -1,0 +1,135 @@
+@mixin homeSub {
+  color: white;
+  font-size: 36px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 16px;
+  }
+}
+
+@mixin homeTitle {
+  color: white;
+  font-size: 112px;
+  font-weight: bold;
+  letter-spacing: 40px;
+  margin-top: 25px;
+  @media screen and (max-width: 1024px) {
+    font-size: 90px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 50px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 40px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 22px;
+  }
+}
+
+@mixin homeBtn {
+  border: 2px solid white;
+  background-color: transparent;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-top: 40px;
+  transition: 0.4s ease;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 16px;
+  }
+  &:hover {
+    background-color: rgb(79, 79, 79);
+    border: none;
+    transition: 0.4s ease;
+  }
+}
+
+@mixin sectionTitle {
+  font-size: 38px;
+  color: #2f2e2e;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 20px;
+  }
+}
+
+@mixin sectionSub {
+  font-family: "Dancing Script";
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #2f2e2e;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 16px;
+    margin-top: 7px;
+  }
+}
+
+@mixin sectionPar {
+  font-size: 16px;
+  line-height: 1.6em;
+  margin-top: 45px;
+  color: #2f2e2e;
+  width: 50%;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 10px;
+    width: 75%;
+    margin-top: 10px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 9px;
+    width: 80%;
+    margin-top: 5px;
+  }
+}
+
+@mixin sectionBtn {
+  border: 2px solid #2f2e2e;
+  background-color: transparent;
+  margin-top: 57px;
+  font-size: 22px;
+  font-weight: 700;
+  transition: 0.4s ease;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
+
+@mixin sectionBtnHov {
+  transition: 0.4s ease;
+  background-color: #2f2e2e;
+  color: white;
+}
