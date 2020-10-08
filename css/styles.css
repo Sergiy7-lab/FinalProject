@@ -789,7 +789,7 @@ body {
 }
 .slider__item {
   width: 25%;
-  max-height: 480px;
+  max-height: 800px;
   cursor: pointer;
 }
 
