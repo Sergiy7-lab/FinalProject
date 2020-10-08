@@ -358,6 +358,7 @@ body {
 
 .slider {
   width: 100%;
+  height: fit-content;
   position: relative;
   &__container {
     overflow: hidden;
