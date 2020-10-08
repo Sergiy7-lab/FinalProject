@@ -789,7 +789,6 @@ body {
 }
 .slider__item {
   width: 25%;
-  min-height: 125px;
   max-height: 480px;
   cursor: pointer;
 }
@@ -1131,7 +1130,7 @@ body {
     margin-top: 10px;
   }
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 425px) {
   .home-section__wrap_title > a {
     font-size: 20px;
   }
@@ -1165,6 +1164,10 @@ body {
   .place-section__btn {
     width: 110px;
     height: 25px;
+  }
+
+  .slider__item {
+    max-height: 80px;
   }
 
   .foot__wrap__contacts h2 {
