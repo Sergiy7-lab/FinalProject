@@ -369,7 +369,8 @@ body {
   }
   &__item {
     width: 25%;
-    height: 25%;
+    min-height: 125px;
+    max-height: 480px;
     cursor: pointer;
   }
 }
