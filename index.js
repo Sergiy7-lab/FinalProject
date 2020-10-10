@@ -187,8 +187,6 @@ const checkBtns = () => {
 };
 // ==================================== 00000 =============================
 
-let width = items[0].offsetWidth;
-
 let start;
 let change;
 
@@ -225,23 +223,28 @@ function slideShow() {
 }
 
 // ======================================
+if (window.matchMedia("(max-width: 768px)").matches) {
 
-if (window.matchMedia("(max-width: 425px)").matches) {
-  let position = 0;
-  const slidesToShow = 2;
-  const slidesToScroll = 2;
-  const container = document.querySelector(".slider__container");
-  const track = document.querySelector(".slider__track");
-  const items = document.querySelectorAll(".slider__item");
+let start;
+let change;
 
-  const btnNext = document.querySelector(".btn-next");
-  const btnPrev = document.querySelector(".btn-prev");
+track.addEventListener("touchstart", swipeStart);
 
-  const itemsCount = items.length;
-  const itemWidth = container.clientWidth / slidesToShow;
-  const movePosition = slidesToScroll * itemWidth;
+ function swipeStart(e) {
+  start = e.touches[0].clientX;
+ }
 
-  btnNext.addEventListener("click", () => {
+track.addEventListener("touchmove", swipeAction);
+
+function swipeAction(e) { 
+  change = start - e.touches[0].clientX;
+ 
+}
+
+track.addEventListener('touchend', slideShow);
+
+function slideShow() {
+  if (change > 0) {
     const itemsLeft =
       itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
 
@@ -250,75 +253,14 @@ if (window.matchMedia("(max-width: 425px)").matches) {
 
     setPosition();
     checkBtns();
-  });
-
-  btnPrev.addEventListener("click", () => {
+  } else {
     const itemsLeft = Math.abs(position) / itemWidth;
     position +=
       itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
 
     setPosition();
     checkBtns();
-  });
-
-  const setPosition = () => {
-    track.style.transition = `${2}s`;
-    track.style.transform = `translateX(${position}px)`;
-  };
-
-  const checkBtns = () => {
-    btnPrev.disabled = position === 0;
-    btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
-  };
-  // ==================================== 00000 =============================
-
-  let start;
-  let positionChange;
-
-  track.addEventListener(
-    "touchstart",
-    (e) => {
-      let change = e.changedTouches;
-      for (let i = 0; i < change.length; i++) {
-        start = change[i].clientX;
-      }
-    },
-    false
-  );
-
-  track.addEventListener(
-    "touchmove",
-    (e) => {
-      let change = e.changedTouches;
-      e.preventDefault();
-      for (var i = 0; i < e.changedTouches.length; i++) {
-        let touch = change[i].clientX;
-        positionChange = start - touch;
-      }
-    },
-    false
-  );
-
-  track.addEventListener("touchend", slideShow);
-
-  function slideShow() {
-    if (positionChange > 0) {
-      const itemsLeft =
-        itemsCount -
-        (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
-
-      position -=
-        itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
-
-      setPosition();
-      checkBtns();
-    } else {
-      const itemsLeft = Math.abs(position) / itemWidth;
-      position +=
-        itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
-
-      setPosition();
-      checkBtns();
-    }
   }
 }
+}
+
