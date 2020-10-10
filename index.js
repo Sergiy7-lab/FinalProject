@@ -264,3 +264,68 @@ function slideShow() {
 }
 }
 
+if (window.matchMedia("(max-width: 425px)").matches) {
+  let position = 0;
+const slidesToShow = 2;
+const slidesToScroll = 2;
+const container = document.querySelector(".slider__container");
+const track = document.querySelector(".slider__track");
+const items = document.querySelectorAll(".slider__item");
+
+const btnNext = document.querySelector(".btn-next");
+const btnPrev = document.querySelector(".btn-prev");
+
+const itemsCount = items.length;
+const itemWidth = container.clientWidth / slidesToShow;
+const movePosition = slidesToScroll * itemWidth;
+  
+
+  let start;
+let change;
+
+track.addEventListener("touchstart", swipeStart);
+
+ function swipeStart(e) {
+  start = e.touches[0].clientX;
+ }
+
+track.addEventListener("touchmove", swipeAction);
+
+function swipeAction(e) { 
+  change = start - e.touches[0].clientX;
+ 
+}
+
+track.addEventListener('touchend', slideShow);
+
+function slideShow() {
+  if (change > 0) {
+    const itemsLeft =
+      itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+
+    position -=
+      itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+    setPosition();
+    checkBtns();
+  } else {
+    const itemsLeft = Math.abs(position) / itemWidth;
+    position +=
+      itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+    setPosition();
+    checkBtns();
+  }
+}
+
+const setPosition = () => {
+  track.style.transition = `${2}s`;
+  track.style.transform = `translateX(${position}px)`;
+};
+
+const checkBtns = () => {
+  btnPrev.disabled = position === 0;
+  btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
+};
+}
+
