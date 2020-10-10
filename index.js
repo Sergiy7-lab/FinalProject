@@ -125,7 +125,7 @@ if (window.matchMedia("(max-width: 425px)").matches) {
   window.addEventListener("scroll", function () {
     let value = window.scrollY;
     bg.style.transform = `translateY(${(value - 1177) / 2}px)`;
-    console.log(value);
+    
   });
 
   window.addEventListener("scroll", function () {
