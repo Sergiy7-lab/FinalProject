@@ -524,6 +524,10 @@ body {
     width: 35vw;
   }
 
+  .block-paralax {
+    height: 340px;
+  }
+
   .foot__wrap {
     display: inline-block;
     padding-top: 10px;
