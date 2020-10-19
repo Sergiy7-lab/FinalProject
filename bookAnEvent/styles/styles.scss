@@ -447,6 +447,12 @@ body {
   }
 }
 
+@media screen and (max-width: 425px) {
+  .block-paralax {
+    height: 240px;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .home-section__wrap_title > a {
     font-size: 20px;
